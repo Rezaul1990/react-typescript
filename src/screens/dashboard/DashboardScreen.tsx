@@ -1,21 +1,42 @@
-import React from 'react'
+import React from 'react';
 import { useAuthStore } from '../../store/authStore';
 import { useNavigate } from 'react-router-dom';
 
-const DashboardScreen = () => {
+const DashboardScreen: React.FC = () => {
   const logout = useAuthStore((state) => state.logout);
+  const user = useAuthStore((state) => state.user);
+  const role = useAuthStore((state) => state.role);
   const navigate = useNavigate();
+
   return (
-    <div>
-      <h1>Welcome!</h1>
-      <button onClick={() => {
-        logout();
-        navigate('/login');
-      }}>
+    <div style={styles.container}>
+      <h1>Welcome, {user?.name}!</h1>
+      <p>Email: {user?.email}</p>
+      <p>Role: {role}</p>
+
+      <button
+        onClick={() => {
+          logout();
+          navigate('/login');
+        }}
+        style={styles.button}
+      >
         Logout
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default DashboardScreen
+const styles: { [key: string]: React.CSSProperties } = {
+  container: {
+    padding: 40,
+    textAlign: 'center',
+  },
+  button: {
+    marginTop: 20,
+    padding: '10px 20px',
+    cursor: 'pointer',
+  },
+};
+
+export default DashboardScreen;

@@ -21,7 +21,7 @@ const LoginScreen: React.FC = () => {
         const res = await loginUser({ email, password });
         console.log('Login successful:', res);
         // localStorage.setItem('token', res.token);
-        login(res.token, res.user);
+        login(res.token, res.user, res.role);
         navigate('/dashboard');
       } catch (err: any) {
         alert(err?.response?.data?.error || 'Login failed');

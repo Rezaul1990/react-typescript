@@ -17,4 +17,5 @@ export interface RegisterPayload {
 export interface AuthResponse {
   token: string;
   user: User;
+  role: string;
 }
