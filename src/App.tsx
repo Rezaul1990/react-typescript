@@ -18,6 +18,8 @@ import MoneyScreen from './screens/money/MoneyScreen';
 import BottomTab from './components/BottomTab';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
+import AddContent from './screens/addcontent/AddContent';
+import ClassList from './screens/classlist/ClassList';
 
 const Layout = () => {
   const location = useLocation();
@@ -36,6 +38,8 @@ const Layout = () => {
         <Route path="/profile" element={<PrivateRoute><ProfileScreen /></PrivateRoute>} />
         <Route path="/setting" element={<PrivateRoute><SettingScreen /></PrivateRoute>} />
         <Route path="/money" element={<PrivateRoute><MoneyScreen /></PrivateRoute>} />
+        <Route path="/addcontent" element={<PrivateRoute><AddContent /></PrivateRoute>} />
+        <Route path="/classlist" element={<PrivateRoute><ClassList /></PrivateRoute>} />
 
         <Route path="*" element={<Navigate to="/authentication/login" />} />
       </Routes>

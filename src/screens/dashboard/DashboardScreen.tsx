@@ -3,10 +3,10 @@ import { useAuthStore } from '../../store/authStore';
 import { useNavigate } from 'react-router-dom';
 
 const DashboardScreen: React.FC = () => {
-  const logout = useAuthStore((state) => state.logout);
+  
   const user = useAuthStore((state) => state.user);
   const role = useAuthStore((state) => state.role);
-  const navigate = useNavigate();
+  
 
   return (
     <div style={styles.container}>
@@ -14,15 +14,7 @@ const DashboardScreen: React.FC = () => {
       <p>Email: {user?.email}</p>
       <p>Role: {role}</p>
 
-      <button
-        onClick={() => {
-          logout();
-          navigate('/login');
-        }}
-        style={styles.button}
-      >
-        Logout
-      </button>
+      
     </div>
   );
 };
