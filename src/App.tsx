@@ -20,6 +20,7 @@ import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import AddContent from './screens/addcontent/AddContent';
 import ClassList from './screens/classlist/ClassList';
+import PublicProfile from './screens/profile/PublicProfile';
 
 const Layout = () => {
   const location = useLocation();
@@ -40,6 +41,7 @@ const Layout = () => {
         <Route path="/money" element={<PrivateRoute><MoneyScreen /></PrivateRoute>} />
         <Route path="/addcontent" element={<PrivateRoute><AddContent /></PrivateRoute>} />
         <Route path="/classlist" element={<PrivateRoute><ClassList /></PrivateRoute>} />
+        <Route path="/profile/:username" element={<PrivateRoute><PublicProfile /></PrivateRoute>} />
 
         <Route path="*" element={<Navigate to="/authentication/login" />} />
       </Routes>
